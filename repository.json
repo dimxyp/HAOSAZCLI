@@ -1,5 +1,5 @@
 {
-  "name": "My Custom Addons",
-  "url": "https://github.com/YOUR_USERNAME/hassio-addons",
-  "maintainer": "YOUR NAME"
+  "name": "HAOS Addons",
+  "url": "https://github.com/dimxyp/HAOSAZCLI",
+  "maintainer": "dx"
 }
