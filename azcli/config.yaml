@@ -1,0 +1,14 @@
+name: "Azure CLI Add-on"
+version: "1.0"
+slug: "azcli"
+description: "Run Azure CLI commands on Raspberry Pi 4 (64-bit)"
+startup: once
+boot: manual
+init: false
+ingress: false
+arch:
+  - aarch64
+host_network: true
+map:
+  - config:rw
+schema: {}
