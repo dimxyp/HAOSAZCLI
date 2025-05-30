@@ -1,24 +1,25 @@
-FROM alpine:3.19
+FROM arm64v8/debian:bookworm-slim
 
-# Install dependencies
-RUN apk add --no-cache \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
     curl \
     bash \
     python3 \
-    py3-pip \
+    python3-pip \
     gcc \
-    musl-dev \
+    g++ \
     libffi-dev \
-    openssl-dev \
+    libssl-dev \
     make \
-    git
+    ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Upgrade pip and install Azure CLI
-RUN pip install --upgrade pip && \
-    pip install azure-cli
+RUN pip3 install --upgrade pip setuptools wheel
 
-# Add run script
+RUN pip3 install azure-cli
+
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+CMD ["/run.sh"]
