@@ -1,23 +1,7 @@
-FROM arm64v8/debian:bookworm-slim
+FROM arm64v8/python:3.13-slim-bookworm
+ENV PYTHONWARNINGS=ignore::FutureWarning
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && apt-get install -y \
-    curl \
-    bash \
-    python3 \
-    python3-pip \
-    gcc \
-    g++ \
-    libffi-dev \
-    libssl-dev \
-    make \
-    ca-certificates \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install --upgrade pip setuptools wheel
-
-RUN pip3 install azure-cli
+RUN pip install --upgrade pip setuptools wheel azure-cli
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
