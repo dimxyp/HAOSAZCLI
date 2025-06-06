@@ -1,10 +1,10 @@
 #!/bin/bash
+echo "Starting Azure CLI Add‑on..."
 
-echo "Starting Azure CLI inside Home Assistant Add-on..."
-echo "============================="
-
-# Example: list current subscriptions
+# Login with Service Principal using env vars from config.json
+az login --service-principal --username "$CLIENT_ID" --password "$CLIENT_SECRET" --tenant "$TENANT_ID"
 az account list --output table || echo "You may need to login using a service principal."
+echo "Logged in as Service Principal, ready for commands."
 
-# Keep container alive briefly to show output in logs
-sleep 5
+# Keep running to keep container alive
+tail -f /dev/null
