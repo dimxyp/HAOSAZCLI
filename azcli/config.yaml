@@ -1,5 +1,5 @@
 name: "AzureCLI"
-version: "1.5"
+version: "1.5.1"
 slug: azcli
 description: "Run Azure CLI commands"
 startup: services
