@@ -1,4 +1,5 @@
-FROM arm64v8/python:3.13-slim-bookworm
+FROM python:3.13-slim-bookworm
+
 ENV PYTHONWARNINGS=ignore::FutureWarning
 
 RUN pip install --upgrade pip setuptools wheel azure-cli
