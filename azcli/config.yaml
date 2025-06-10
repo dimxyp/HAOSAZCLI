@@ -1,5 +1,5 @@
 name: "AzureCLI"
-version: "1.5.1"
+version: "1.5.2"
 slug: azcli
 description: "Run Azure CLI commands"
 startup: services
@@ -12,9 +12,9 @@ host_network: true
 map:
   - config:rw
 options:
-  tenant_id: ""
-  client_id: ""
-  client_secret: ""
+  tenant_id: null
+  client_id: null
+  client_secret: null
 schema:
   tenant_id: str
   client_id: str
