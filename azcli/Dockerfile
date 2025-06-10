@@ -2,7 +2,7 @@ FROM python:3.13-slim-bookworm
 
 ENV PYTHONWARNINGS=ignore::FutureWarning
 
-RUN pip install --upgrade pip setuptools wheel azure-cli
+RUN pip install --upgrade pip setuptools wheel azure-cli jq
     
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
