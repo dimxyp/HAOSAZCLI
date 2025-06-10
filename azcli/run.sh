@@ -1,8 +1,12 @@
 #!/bin/bash
 echo "Starting Azure CLI Add-on..."
+echo "flat"
 echo $TENANT_ID
 echo $CLIENT_ID
 echo $CLIENT_SECRET
+echo "$TENANT_ID"
+echo "$CLIENT_ID"
+echo "$CLIENT_SECRET"
 # Login with Service Principal using env vars from config.json
 az login --service-principal --username "$CLIENT_ID" --password "$CLIENT_SECRET" --tenant "$TENANT_ID"
 echo $TENANT_ID
