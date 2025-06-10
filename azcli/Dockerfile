@@ -5,9 +5,9 @@ RUN apk add --no-cache python3 py3-pip bash curl jq
 
 # Install Azure CLI
 RUN apk add --no-cache --virtual=build gcc musl-dev python3-dev libffi-dev openssl-dev cargo make \
-    && pip3 install --no-cache-dir --prefer-binary bashio azure-cli \
+    && pip3 install --no-cache-dir --prefer-binary azure-cli \
     && apk del build
-
+RUN apk add --no-cache bashio
 # Copy and set up the script
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
