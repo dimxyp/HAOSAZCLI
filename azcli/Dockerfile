@@ -5,6 +5,6 @@ ENV PYTHONWARNINGS=ignore::FutureWarning
 RUN pip install --upgrade pip setuptools wheel azure-cli
     
 COPY run.sh /run.sh
-RUN chmod +x /run.shMore actions
+RUN chmod +x /run.sh
 
 CMD ["/run.sh"]
