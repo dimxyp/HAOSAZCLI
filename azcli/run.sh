@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Starting Azure CLI Add-on..."
+cat /etc/os-release
 export TENANT_ID=$(bashio::config 'tenant_id')
 export CLIENT_ID=$(bashio::config 'client_id')
 export CLIENT_SECRET=$(bashio::config 'client_secret')
