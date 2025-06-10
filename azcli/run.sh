@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
+
 echo "Starting Azure CLI Add-on..."
-cat /etc/os-release
-export TENANT_ID=$(bashio::config 'tenant_id')
-export CLIENT_ID=$(bashio::config 'client_id')
-export CLIENT_SECRET=$(bashio::config 'client_secret')
-echo "$TENANT_ID"
-echo "$CLIENT_ID"
-echo "$CLIENT_SECRET"
+
+echo "Tenant ID: ${TENANT_ID}"
+echo "Client ID: ${CLIENT_ID}"
+echo "Client Secret: ${CLIENT_SECRET}"
+
+
 # Login with Service Principal using env vars from config.json
 #az login --service-principal --username "$CLIENT_ID" --password "$CLIENT_SECRET" --tenant "$TENANT_ID"
 #az account list --output table || echo "You may need to login using a service principal."
-echo "Logged in as Service Principal, ready for commands."
+#echo "Logged in as Service Principal, ready for commands."
 
 # Keep running to keep container alive
 tail -f /dev/null
