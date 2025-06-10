@@ -1,5 +1,5 @@
 name: "AzureCLI"
-version: "1.3"
+version: "1.4"
 slug: azcli
 description: "Run Azure CLI commands on Raspberry Pi 4 (64-bit)"
 startup: services
