@@ -1,17 +1,14 @@
-FROM python:3.13-slim-bookworm
-
-ENV PYTHONWARNINGS=ignore::FutureWarning
+FROM homeassistant/amd64-base:latest
 
 # Install dependencies
-RUN apt update && apt install -y curl jq bash
+RUN apk add --no-cache python3 py3-pip bash curl jq
 
-# Install Bashio
-RUN curl -sL https://github.com/hassio-addons/bashio/archive/master.tar.gz | tar -xz \
-    && mv bashio-master/bashio /usr/bin/bashio \
-    && chmod +x /usr/bin/bashio
+# Install Azure CLI
+RUN apk add --no-cache --virtual=build gcc musl-dev python3-dev libffi-dev openssl-dev cargo make \
+    && pip3 install --no-cache-dir --prefer-binary azure-cli \
+    && apk del build
 
-RUN pip install --upgrade pip setuptools wheel azure-cli
-
+# Copy and set up the script
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
