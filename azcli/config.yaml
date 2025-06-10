@@ -7,7 +7,8 @@ boot: auto
 init: false
 ingress: false
 arch:
-  - aarch64
+  - amd64        # 64-bit PCs / NUC
+  - aarch64      # 64-bit Raspberry Pi, etc.
 host_network: true
 map:
   - config:rw
